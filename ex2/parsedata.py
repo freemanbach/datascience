@@ -1,3 +1,10 @@
+# Author  : freeman
+# Date    : 2019.09.29
+# Version : 0.0.1
+# Desc    : 
+#
+###################################################################
+
 import csv
 
 def processGPA(mygpa):
