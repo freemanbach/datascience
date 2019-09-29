@@ -1,19 +1,19 @@
 {
-    "firstName": "Heather",
-    "lastName": "Johnson",
+    "firstname": "Heather",
+    "lastname": "Johnson",
     "hobbies": ["running", "sky diving", "singing", "swimming", "opera", "biking"],
     "age": 38,
     "children": [
         {
-            "firstName": "Alice",
+            "firstname": "Alice",
             "age": 4
         },
         {
-            "firstName": "Bob",
+            "firstname": "Bob",
             "age": 8
         },
         {
-            "firstName": "John",
+            "firstname": "John",
             "age": 11
         }
     ]
