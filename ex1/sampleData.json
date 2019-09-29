@@ -1,0 +1,20 @@
+{
+    "firstName": "Heather",
+    "lastName": "Johnson",
+    "hobbies": ["running", "sky diving", "singing", "swimming", "opera", "biking"],
+    "age": 38,
+    "children": [
+        {
+            "firstName": "Alice",
+            "age": 4
+        },
+        {
+            "firstName": "Bob",
+            "age": 8
+        },
+        {
+            "firstName": "John",
+            "age": 11
+        }
+    ]
+}
