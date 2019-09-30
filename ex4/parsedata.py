@@ -1,6 +1,6 @@
 # Author  : freeman
-# Date    : 2019.09.29
-# Version : 0.0.1
+# Date    : 2019.09.30
+# Version : 0.0.2
 # Desc    :
 #
 ###################################################################
@@ -21,6 +21,32 @@ def getRandomSample1(f):
     ndata = random.sample(data, 500)
     print "Size of this new sample is: " + str(len(ndata))
     
+
+# answer the question 2-doors and low maintenance
+def get2dlowmaint(f):
+    data, fdset = [], []
+    with open(f, 'r') as dset:
+        for i in dset:
+            tmp = i.split(',')
+            if tmp[1] == "low" and tmp[2] == "2": 
+                data.append(i)
+    
+    print len(data)
+    print data
+    
+    
+# answer the question 4-doors and high maintenance
+def get4dhighmaint(f):
+    data, fdset = [], []
+    with open(f, 'r') as dset:
+        for i in dset:
+            tmp = i.split(',')
+            if tmp[1] == "vhigh" and tmp[2] == "4": 
+                data.append(i)
+    
+    print len(data)
+    print data
+    
     
 def getRandomSample2(f):
     data,size, ndata = [], [], []
@@ -31,16 +57,18 @@ def getRandomSample2(f):
         for i in dset:
             data.append(i)
     # Thinking of writing my own unique Sampling Algorithm
+    return 0
     
     
 def main():
     
-    if len(sys.argv) <= 0:
+    if len(sys.argv) <= 1:
+        print "not enough parameters"
         sys.exit()
-    else:
-        getRandomSample1(sys.argv[1])
     
-    
+    #getRandomSample1(sys.argv[1])
+    #get2dlowmaint(sys.argv[1])
+    get4dhighmaint(sys.argv[1])
     
 if __name__ == "__main__":
     main()
