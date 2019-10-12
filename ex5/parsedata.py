@@ -19,9 +19,13 @@ def getRandSamp(f):
     
     # random Sampling
     data = random.sample(tmp, 100)
-    print data
-    print len(data)
+    return data
+    #print data
+    #print len(data)
     
+def splitTheStuff(d):
+    
+    return 0
 
 def main():
     
@@ -29,7 +33,8 @@ def main():
         print "not enough parameters, need a datasource file as parameter." # machine.data
         sys.exit()
     else:
-        getRandSamp(sys.argv[1])
+        a = getRandSamp(sys.argv[1])
+        b = splitTheStuff(a)
         
     
     

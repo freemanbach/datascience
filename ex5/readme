@@ -1,1 +1,9 @@
-Future python programming DS assignment
+Future python programming DS assignment.
+
+1) how many siemens cpu have machine cycle time with < 100 ns
+2) how many sperry cpu have machine cycle time with < 100 ns
+3) how many wang cpu have machine cycle time with < 100 ns
+4) does higher max channel (chmax) played a role in decrease in machine cycle time ?
+5) does lower min channel (chmin) played a role in decrease in machine cycle time ?
+
+display them in a plot would be easy to see.
