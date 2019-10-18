@@ -13,9 +13,9 @@ def stddevpop(myvalues):
  
     # find the mean
     for i in myvalues:
-        sumofvalues+=1
-    mean = sumofvalues / len(myvalues)
- 
+        sumofvalues+=i
+    mean = float(sumofvalues) / len(myvalues)
+
     # sum of all values from mean
     for i in myvalues:
         total+=math.pow(i-mean,2)
@@ -23,6 +23,12 @@ def stddevpop(myvalues):
     
     return math.sqrt(std)
 
+
+"""
+Compute the Variance of a population.
+"""
+def variancepop(vac):
+    return math.pow(stddevpop(vac), 2)
 
 """
 A quick lib for finding out the Standard Deviation of a Sample 
@@ -34,29 +40,41 @@ def stddevsamp(myvalues):
  
     # find the mean
     for i in myvalues:
-        sumofvalues+=1
-    mean = sumofvalues / len(myvalues)
+        sumofvalues+=i
+    mean = float(sumofvalues) / len(myvalues)
  
     # sum of all values from mean
     for i in myvalues:
         total+=math.pow(i-mean,2)
     std = total / (n-1)
     
-    return math.sqrt(std)
- 
+    return math.sqrt(std) 
+
+
+"""
+Compute the Variance of a Sample Population
+"""
+def variancesamp(vac):
+    return math.pow(stddevsamp(vac), 2)
+
 
 def main():
-    mylst = []
+    mylst, mylst2 = [], [3, 4, 4, 5, 6, 8]
     random.seed(time.time())
     for i in range(0,10):
         tmp = random.randint(0,20)
         mylst.append(tmp)
-        
+
+
     print str(mylst)
-    stddev1 = stddevpop(mylst)
+    stddev1 = stddevpop(mylst2)
     print "Std deviation of a Population: " + str(stddev1)
-    stddev2 = stddevsamp(mylst)
+    stddev2 = stddevsamp(mylst2)
     print "Std deviation of a Sample Population: " + str(stddev2)
+    print "\n"
+    print "Variance of a population: " + str(variancepop(mylst2))
+    print "Variance of a Sample population: " + str(variancesamp(mylst2))
+
 
 if __name__ == "__main__":
     main()
