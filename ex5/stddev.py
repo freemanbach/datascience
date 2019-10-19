@@ -4,18 +4,27 @@ import math
 
 
 """
+Standard Mean
+"""
+def stdmean(m):
+    sumofvalues = 0
+    
+    # find the mean
+    for i in m:
+        sumofvalues+=i
+    return float(sumofvalues) / len(m)
+
+    
+"""
 A quick lib for finding out the Standard Deviation of a population 
 from a list of values. N is the population.
 """
 def stddevpop(myvalues):
     n = len(myvalues)
-    sumofvalues, total, mean, std = 0,0,0,0
+    total, mean , std = 0,0,0
+    
+    mean = stdmean(myvalues)
  
-    # find the mean
-    for i in myvalues:
-        sumofvalues+=i
-    mean = float(sumofvalues) / len(myvalues)
-
     # sum of all values from mean
     for i in myvalues:
         total+=math.pow(i-mean,2)
@@ -36,13 +45,10 @@ population from a list of values. N-1 is the sample population.
 """
 def stddevsamp(myvalues):
     n = len(myvalues)
-    sumofvalues, total, mean, std = 0,0,0,0
- 
-    # find the mean
-    for i in myvalues:
-        sumofvalues+=i
-    mean = float(sumofvalues) / len(myvalues)
- 
+    total, mean, std = 0,0,0,0
+
+    mean = stdmean(myvalues)
+
     # sum of all values from mean
     for i in myvalues:
         total+=math.pow(i-mean,2)
