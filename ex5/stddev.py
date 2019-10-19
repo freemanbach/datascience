@@ -94,8 +94,86 @@ def zscore(x, mean, std):
     return float(x-mean) / std
 
 
+"""
+Support Pearson correlation coefficient
+"""
+def sum_xy(a,b):
+    xy=0
+    if len(a) != len(b):
+        print "Length of List A and List B dont equate."
+        sys.exit(1)
+    else:
+        for i in range(0 , len(a)):
+            xy += a[i]*b[i]
+    return xy
+
+
+"""
+Support Pearson correlation coefficient
+"""
+def sum_x(a):
+    x = 0
+    for i in a:
+        x+=i
+    return x
+
+
+"""
+Support Pearson correlation coefficient
+"""
+def sum_y(b):
+    y = 0
+    for i in b:
+        y+=i
+    return y
+
+
+"""
+Support Pearson correlation coefficient
+"""
+def sum_x2(a):
+    x2 = 0
+    for i in a:
+        x2+=math.pow(i,2)
+    return x2
+    
+
+"""
+Support Pearson correlation coefficient
+"""
+def sum_y2(b):
+    y2 = 0
+    for i in b:
+        y2+=math.pow(i,2)
+    return y2
+   
+    
+"""
+Pearson correlation coefficient
+"""
+def pearsoncc(x,y):
+    
+    s_x, s_y, s_xy, s_x2, s_y2 = 0,0,0,0,0
+    
+    s_x = sum_x(x)
+    s_y = sum_y(y)
+    s_x2 = sum_x2(x)
+    s_y2 = sum_y2(y)
+    s_xy = sum_xy(x,y)
+        
+    x1 = len(x)*s_x2 - math.pow(s_x, 2)
+    y1 = len(x)*s_y2 - math.pow(s_y, 2)
+    pcc = ((len(x)*s_xy)-(s_x*s_y)) / math.sqrt(x1*y1)
+    
+    return pcc
+
+
+"""
+testing functions from above in main
+"""
 def main():
     mylst, mylst2 = [], [3, 4, 4, 5, 6, 8]
+    age_x, glucose_y = [43,21,25,42,57,59] , [99,65,79,75,87,81]
     random.seed(time.time())
     for i in range(0,10):
         tmp = random.randint(0,20)
@@ -103,7 +181,8 @@ def main():
         
     #a =90
     #print stdmean(a)
-    print str(mylst)
+    print "Your answer is: " + str(pearsoncc(age_x, glucose_y))
+    #print str(mylst)
     stddev1 = stddevpop(mylst2)
     print "Std deviation of a Population: " + str(stddev1)
     stddev2 = stddevsamp(mylst2)
