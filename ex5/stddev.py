@@ -169,11 +169,57 @@ def pearsoncc(x,y):
 
 
 """
+Spearman rank correlation coefficient (List)
+not sure if this data structure could be a dict or as a list
+Problem is that Dictionary is not ordered like list O(N) and cant 
+contain duplicates due to hash-table O(1). 
+x    :  list 1
+y    :  list 2
+"""
+def spearmanrcc(x,y):
+    
+    if str(type(x)).split("\'")[1] != 'list' and str(type(x)).split("\'")[1] != 'list':
+        print "Your inputs must be of type list !"
+        sys.exit(1)
+        
+    if len(x) != len(y):
+        print "Length of List x and List y dont equate."
+        sys.exit(1)
+    
+    for i in range(0, len(x)):
+        d += math.pow(abs(x[i]-y[i]),2) 
+    d = 6 * d
+    srcc = 1 - ( d / ( len(x) * ( math.pow(len(x),2) - 1 )) )
+    
+    return srcc
+
+
+"""
+Spearman rank correlation coefficient (Dict)
+not sure if this data structure could be a dict or as a list
+Problem is that Dictionary is not ordered like list O(N) and cant 
+contain duplicates due to hash-table O(1). 
+x    :  dict 1
+y    :  dict 2
+"""
+def spearmanrcc_dict(x,y):
+    # need time to think about this before implementation
+    return 0
+
+
+"""
 testing functions from above in main
 """
 def main():
+    #Spearman Rank Coefficient
+    phy = [3, 5, 1, 6, 7, 2, 8, 9, 4]
+    mth = [5, 3, 2, 6, 8, 1, 7, 9, 4]
+    
+    # random sample
     mylst, mylst2 = [], [3, 4, 4, 5, 6, 8]
+    #Pearman corrolation coefficient
     age_x, glucose_y = [43,21,25,42,57,59] , [99,65,79,75,87,81]
+    # Some other random things to test
     random.seed(time.time())
     for i in range(0,10):
         tmp = random.randint(0,20)
@@ -181,6 +227,7 @@ def main():
         
     #a =90
     #print stdmean(a)
+    print "Ans is: " + str(spearmanrcc(phy, mth))
     print "Your answer is: " + str(pearsoncc(age_x, glucose_y))
     #print str(mylst)
     stddev1 = stddevpop(mylst2)
