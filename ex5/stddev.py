@@ -1,6 +1,6 @@
 # Author   : freeman
 # Date     : 2019.10.21
-# version  : 0.0.6
+# version  : 0.0.7
 # desc     : statistical functions 
 #          : 
 ###################################################
@@ -177,7 +177,7 @@ x    :  list 1
 y    :  list 2
 """
 def spearmanrcc(x,y):
-    
+    d = 0
     if str(type(x)).split("\'")[1] != 'list' and str(type(x)).split("\'")[1] != 'list':
         print "Your inputs must be of type list !"
         sys.exit(1)
