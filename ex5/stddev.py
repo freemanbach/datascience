@@ -1,6 +1,6 @@
 # Author   : freeman
-# Date     : 2019.10.19
-# version  : 0.0.3
+# Date     : 2019.10.21
+# version  : 0.0.6
 # desc     : statistical functions 
 #          : 
 ###################################################
