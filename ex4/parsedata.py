@@ -1,6 +1,6 @@
 # Author  : freeman
-# Date    : 2019.09.30
-# Version : 0.0.2
+# Date    : 2019.10.21
+# Version : 0.0.3
 # Desc    :
 #
 ###################################################################
@@ -31,8 +31,8 @@ def get2dlowmaint(f):
             if tmp[1] == "low" and tmp[2] == "2": 
                 data.append(i)
     
-    print len(data)
-    print data
+    # print len(data)
+    return data
     
     
 # answer the question 4-doors and high maintenance
@@ -44,8 +44,8 @@ def get4dhighmaint(f):
             if tmp[1] == "vhigh" and tmp[2] == "4": 
                 data.append(i)
     
-    print len(data)
-    print data
+    # print len(data)
+    return data
     
     
 def getRandomSample2(f):
@@ -69,7 +69,9 @@ def main():
     #getRandomSample1(sys.argv[1])
     #get2dlowmaint(sys.argv[1])
     print sys.argv[0]
-    get4dhighmaint(sys.argv[1])
+    ans = get4dhighmaint(sys.argv[1])
+    for i in ans:
+        print i
     
 if __name__ == "__main__":
     main()
