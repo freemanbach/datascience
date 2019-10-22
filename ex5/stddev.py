@@ -1,6 +1,6 @@
 # Author   : freeman
-# Date     : 2019.10.21
-# version  : 0.0.7
+# Date     : 2019.10.22
+# version  : 0.0.8
 # desc     : statistical functions 
 #          : 
 ###################################################
@@ -38,7 +38,7 @@ def stddevpop(myvalues):
     total, mean , std = 0,0,0
     
     mean = stdmean(myvalues)
- 
+    
     # sum of all values from mean
     for i in myvalues:
         total+=math.pow(i-mean,2)
