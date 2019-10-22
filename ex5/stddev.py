@@ -198,7 +198,9 @@ def spearmanrcc(x,y):
 Spearman rank correlation coefficient (Dict)
 not sure if this data structure could be a dict or as a list
 Problem is that Dictionary is not ordered like list O(N) and cant 
-contain duplicates due to hash-table O(1). 
+contain duplicates due to hash-table O(1).  Python3.7 has this
+problem solved by using:
+from collections import OrderedDict() function
 x    :  dict 1
 y    :  dict 2
 """
@@ -229,7 +231,7 @@ def main():
     #print stdmean(a)
     print "Ans is: " + str(spearmanrcc(phy, mth))
     print "Your answer is: " + str(pearsoncc(age_x, glucose_y))
-    #print str(mylst)
+    print str(mylst)
     stddev1 = stddevpop(mylst2)
     print "Std deviation of a Population: " + str(stddev1)
     stddev2 = stddevsamp(mylst2)
