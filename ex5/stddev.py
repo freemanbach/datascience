@@ -8,6 +8,7 @@ import random
 import time
 import math
 import sys
+from collections import OrderedDict
 
 
 """
@@ -19,10 +20,9 @@ def stdmean(m):
     if str(type(m)).split("\'")[1] != 'list':
         print "Your input must be of type list !"
         sys.exit(1)
-    else:
-        # find the mean
-        for i in m:
-            sumofvalues+=i
+    # find the mean
+    for i in m:
+        sumofvalues+=i
     return float(sumofvalues) / len(m)
 
 
@@ -99,12 +99,17 @@ Support Pearson correlation coefficient
 """
 def sum_xy(a,b):
     xy=0
+    if str(type(a)).split("\'")[1] != 'list' and str(type(b)).split("\'")[1] != 'list':
+        print "Your inputs must be of type list !"
+        sys.exit(1)
+
     if len(a) != len(b):
         print "Length of List A and List B dont equate."
         sys.exit(1)
-    else:
-        for i in range(0 , len(a)):
-            xy += a[i]*b[i]
+        
+    for i in range(0 , len(a)):
+        xy += a[i]*b[i]
+    
     return xy
 
 
@@ -152,9 +157,16 @@ def sum_y2(b):
 Pearson correlation coefficient
 """
 def pearsoncc(x,y):
-    
     s_x, s_y, s_xy, s_x2, s_y2 = 0,0,0,0,0
     
+    if str(type(x)).split("\'")[1] != 'list' and str(type(x)).split("\'")[1] != 'list':
+        print "Your inputs must be of type list !"
+        sys.exit(1)
+
+    if len(x) != len(y):
+        print "Length of List X and List Y dont equate."
+        sys.exit(1)
+
     s_x = sum_x(x)
     s_y = sum_y(y)
     s_x2 = sum_x2(x)
@@ -178,6 +190,7 @@ y    :  list 2
 """
 def spearmanrcc(x,y):
     d = 0
+    
     if str(type(x)).split("\'")[1] != 'list' and str(type(x)).split("\'")[1] != 'list':
         print "Your inputs must be of type list !"
         sys.exit(1)
@@ -196,23 +209,47 @@ def spearmanrcc(x,y):
 
 """
 Spearman rank correlation coefficient (Dict)
-not sure if this data structure could be a dict or as a list
-Problem is that Dictionary is not ordered like list O(N) and cant 
-contain duplicates due to hash-table O(1).  Python3.7 has this
-problem solved by using:
-from collections import OrderedDict() function
+Python3.8 has this problem solved by using:
+from collections import OrderedDict function
+Use the above list function instead.
 x    :  dict 1
 y    :  dict 2
 """
-def spearmanrcc_dict(x,y):
-    # need time to think about this before implementation
-    return 0
+def spearmanrcc_dict(d1,d2):
+    # My list of a and b still dont equate as far as the order is concerned. 
+    # i would assume python 3.8 has this remedy. Still not functional. 
+    """
+    a, b, d = [], [], 0
+    if str(type(d1)).split("\'")[1] != 'collections.OrderedDict' and str(type(d2)).split("\'")[1] != 'collections.OrderedDict':
+        print "Your inputs must be of type OrderedDict from class collections !"
+        sys.exit(1)
+        
+    for v1 in d1.itervalues():
+        a.append(v1)
+    for v2 in d2.itervalues():
+        b.append(v2)
+    
+    print a
+    print b
 
+    for i in range(0, len(a)):
+        d += math.pow(abs(a[i]-b[i]),2) 
+    d = 6 * d
+    srcc = 1 - ( d / ( len(a) * ( math.pow(len(a),2) - 1 )) )
+
+    return srcc
+    """
 
 """
 testing functions from above in main
 """
 def main():
+    
+    #a = OrderedDict({1:10, 2:11, 3:12, 4:13, 5:14, 6:15})
+    #b = OrderedDict({11:20, 21:30, 31:40, 41:50, 50:60, 60:70})
+    #ans = spearmanrcc_dict(a,b)
+    #print "Your Dict Spearman Rank CC is: " + str(ans)
+    
     #Spearman Rank Coefficient
     phy = [3, 5, 1, 6, 7, 2, 8, 9, 4]
     mth = [5, 3, 2, 6, 8, 1, 7, 9, 4]
