@@ -239,6 +239,7 @@ def spearmanrcc_dict(d1,d2):
 
     return srcc
     """
+    return 0
 
 """
 testing functions from above in main
