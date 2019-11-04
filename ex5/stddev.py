@@ -208,48 +208,9 @@ def spearmanrcc(x,y):
 
 
 """
-Spearman rank correlation coefficient (Dict)
-Python3.8 has this problem solved by using:
-from collections import OrderedDict function
-Use the above list function instead.
-x    :  dict 1
-y    :  dict 2
-"""
-def spearmanrcc_dict(d1,d2):
-    # My list of a and b still dont equate as far as the order is concerned. 
-    # i would assume python 3.8 has this remedy. Still not functional. 
-    """
-    a, b, d = [], [], 0
-    if str(type(d1)).split("\'")[1] != 'collections.OrderedDict' and str(type(d2)).split("\'")[1] != 'collections.OrderedDict':
-        print "Your inputs must be of type OrderedDict from class collections !"
-        sys.exit(1)
-        
-    for v1 in d1.itervalues():
-        a.append(v1)
-    for v2 in d2.itervalues():
-        b.append(v2)
-    
-    print a
-    print b
-
-    for i in range(0, len(a)):
-        d += math.pow(abs(a[i]-b[i]),2) 
-    d = 6 * d
-    srcc = 1 - ( d / ( len(a) * ( math.pow(len(a),2) - 1 )) )
-
-    return srcc
-    """
-    return 0
-
-"""
 testing functions from above in main
 """
 def main():
-    
-    #a = OrderedDict({1:10, 2:11, 3:12, 4:13, 5:14, 6:15})
-    #b = OrderedDict({11:20, 21:30, 31:40, 41:50, 50:60, 60:70})
-    #ans = spearmanrcc_dict(a,b)
-    #print "Your Dict Spearman Rank CC is: " + str(ans)
     
     #Spearman Rank Coefficient
     phy = [3, 5, 1, 6, 7, 2, 8, 9, 4]
