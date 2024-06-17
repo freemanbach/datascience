@@ -11,8 +11,8 @@ import json
 def main():
     # Enter in your APi Key along with the long and lat coordiates of your city of choice
     apikey=""
-    #a = requests.get("https://api.openweathermap.org/data/2.5/weather?q=oakland,ca,us&units=imperial&appid="+apikey)
-    a = requests.get("https://api.openweathermap.org/data/2.5/forecast?lat=38.4666&lon=-121.3177&units=imperial&appid="+apikey)
+    #a = requests.get("https://api.openweathermap.org/data/2.5/weather?q=san diego,ca,us&units=imperial&appid="+apikey)
+    a = requests.get("https://api.openweathermap.org/data/2.5/forecast?lat=5.5602&lon=-0.1576&units=imperial&appid="+apikey)
     print(a.text)
 
 if __name__ == "__main__":
